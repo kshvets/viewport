@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <div class="all-sizes">
+        <div class="client-sizes">
+            <div class="sizes"></div>
+        </div>
+
+        <div class="offset-sizes">
+            <div class="sizes"></div>
+        </div>
+
+        <div class="window-inner-sizes">
+            <div class="sizes"></div>
+        </div>
+
+        <div class="window-outer-sizes">
+            <div class="sizes"></div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+
+            function setValues() {
+                let clientHeightElement = document.querySelector('.client-sizes .sizes');
+                clientHeightElement.innerHTML = `client: ${document.documentElement.clientWidth} x ${document.documentElement.clientHeight}`;
+
+                let offsetHeightElement = document.querySelector('.offset-sizes .sizes');
+                offsetHeightElement.innerHTML = `offset: ${document.documentElement.offsetWidth} x ${document.documentElement.offsetHeight}`;
+
+                let windowInnerHeightElement = document.querySelector('.window-inner-sizes .sizes');
+                windowInnerHeightElement.innerHTML = `inner: ${window.innerWidth} x ${window.innerHeight}`;
+
+                let windowOuterHeightElement = document.querySelector('.window-outer-sizes .sizes');
+                windowOuterHeightElement.innerHTML = `outer: ${window.outerWidth} x ${window.outerHeight}`;
+            }
+
+            setValues();
+            
+
+            window.onresize = function(event) {
+                 setValues();
+            }
+        })();
+    </script>
+</body>
+</html>
